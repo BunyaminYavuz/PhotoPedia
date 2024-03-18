@@ -1,0 +1,29 @@
+{
+  "name": "photopedia",
+  "version": "1.0.0",
+  "description": "Photo Portal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BunyaminYavuz/PhotoPedia.git"
+  },
+  "keywords": [
+    "Photo",
+    "Photoghraphy",
+    "Photographer",
+    "Camera",
+    "Album",
+    "Pixel",
+    "Photo",
+    "portal"
+  ],
+  "author": "Bunyamin Yavuz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BunyaminYavuz/PhotoPedia/issues"
+  },
+  "homepage": "https://github.com/BunyaminYavuz/PhotoPedia#readme"
+}
