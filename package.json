@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Photo Portal",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,12 @@
   "bugs": {
     "url": "https://github.com/BunyaminYavuz/PhotoPedia/issues"
   },
-  "homepage": "https://github.com/BunyaminYavuz/PhotoPedia#readme"
+  "homepage": "https://github.com/BunyaminYavuz/PhotoPedia#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
 }
