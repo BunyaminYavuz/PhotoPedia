@@ -105,105 +105,21 @@
             </div>
             <div class="tz-gallery">
                      <div class="row">
+
+                        <% photos.forEach(photo => { %>
                         <div class="col-lg-4 col-md-6 ma_bottom30">
                            <div class="lightbox">
                               <img src="images/g1.jpg" alt="Bridge">
                               <div class="view_main">
                                 <div class="pose">
-                                <a class="read_more" href="images/g1.jpg"><img src="images/ga.png" alt="#"/></a>
-                                <p>more-or-less normal distribution of<br> letters, as opposed to using </p>
+                                <a class="read_more" href="/photos/single/<%= photo._id %>"><img src="images/ga.png" alt="#"/></a>
+                                <p><%= photo.name %><br><%= photo.description %></p>
                               </div>
                               </div>
                            </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 ma_bottom30">
-                           <div class="lightbox">
-                              <img src="images/g2.jpg" alt="Bridge">
-                              <div class="view_main">
-                                  <div class="pose">
-                                <a class="read_more" href="images/g2.jpg"><img src="images/ga.png" alt="#"/></a>
-                                 <p>more-or-less normal distribution of<br> letters, as opposed to using </p>
-                              </div>
-                            </div>
-                           </div>
-                  </div>
-                        <div class="col-lg-4 col-md-6 ma_bottom30">
-                           <div class="lightbox">
-                              <img src="images/g3.jpg" alt="Bridge">
-                              <div class="view_main">
-                                  <div class="pose">
-                                 <a class="read_more" href="images/g3.jpg"><img src="images/ga.png" alt="#"/></a>
-                                  <p>more-or-less normal distribution of<br> letters, as opposed to using </p>
-                              </div>
-                            </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 ma_bottom30">
-                           <div class="lightbox">
-                              <img src="images/g4.jpg" alt="Bridge">
-                              <div class="view_main">
-                                  <div class="pose">
-                                <a class="read_more" href="images/g4.jpg"><img src="images/ga.png" alt="#"/></a>
-                                 <p>more-or-less normal distribution of<br> letters, as opposed to using </p>
-                              </div>
-                           </div>
-                         </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 ma_bottom30">
-                           <div class="lightbox">
-                              <img src="images/g5.jpg" alt="Bridge">
-                              <div class="view_main">
-                                  <div class="pose">
-                                <a class="read_more" href="images/g5.jpg"><img src="images/ga.png" alt="#"/></a>
-                                 <p>more-or-less normal distribution of<br> letters, as opposed to using </p>
-                              </div>
-                           </div>
-                         </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 ma_bottom30">
-                           <div class="lightbox">
-                              <img src="images/g6.jpg" alt="Bridge">
-                              <div class="view_main">
-                                  <div class="pose">
-                                <a class="read_more" href="images/g6.jpg"><img src="images/ga.png" alt="#"/></a>
-                                 <p>more-or-less normal distribution of<br> letters, as opposed to using </p>
-                              </div>
-                           </div>
-                         </div>
-                        </div>
-                         <div class="col-lg-4 col-md-6 ma_bottom30">
-                           <div class="lightbox">
-                              <img src="images/g7.jpg" alt="Bridge">
-                              <div class="view_main">
-                                  <div class="pose">
-                                <a class="read_more" href="images/g7.jpg"><img src="images/ga.png" alt="#"/></a>
-                                 <p>more-or-less normal distribution of<br> letters, as opposed to using </p>
-                              </div>
-                           </div>
-                         </div>
-                  </div>
-                        <div class="col-lg-4 col-md-6 ma_bottom30">
-                           <div class="lightbox">
-                              <img src="images/g8.jpg" alt="Bridge">
-                              <div class="view_main">
-                                  <div class="pose">
-                                <a class="read_more" href="images/g8.jpg"><img src="images/ga.png" alt="#"/></a>
-                                 <p>more-or-less normal distribution of<br> letters, as opposed to using </p>
-                              </div>
-                           </div>
-                         </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 ma_bottom30">
-                           <div class="lightbox">
-                              <img src="images/g9.jpg" alt="Bridge">
-                              <div class="view_main">
-                                  <div class="pose">
-                                <a class="read_more" href="images/g9.jpg"><img src="images/ga.png" alt="#"/></a>
-                                 <p>more-or-less normal distribution of<br> letters, as opposed to using </p>
-                              </div>
-                           </div>
-                         </div>
-                  </div>
+                        <% }) %>
+                        
                   <!-- <div class="col-md-12">
                     <a class="plus_btn" href="gallery.html">+</a>
                   </div> -->

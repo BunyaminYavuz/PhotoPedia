@@ -5,20 +5,20 @@
          
           <div class=" col-md-2 col-sm-3">
              <div class="logo">
-                <a href="index.html">Photo<br><span>Pedia</span></a>
+                <a href="/">Photo<br><span>Pedia</span></a>
              </div>
           </div>
           <div class="col-md-8 col-sm-9">
              <div class="navbar-area">
                 <nav class="site-navbar">
                    <ul>
-                      <li><a class="active" href="index.html">Home</a></li>
-                      <li><a href="about.html">About</a></li>
-                      <li><a href="services.html">Services</a></li>
-                      <li><a href="gallery.html">Gallery</a></li>
-                      <li><a href="projects.html">Projects</a></li>
-                      <li><a href="blog.html">Blog</a></li>
-                      <li><a href="contact.html">Contact</a></li>
+                      <li><a class="<%= activePage  === 'home' ? 'active' : '' %>" href="/">Home</a></li>
+                      <li><a class="<%= activePage  === 'about' ? 'active' : '' %>" href="/about">About</a></li>
+                      <li><a class="<%= activePage  === 'photos' ? 'active' : '' %>" href="/photos">Photos</a></li>
+                      <li><a href="/services">Services</a></li>
+                      <li><a href="/projects">Projects</a></li>
+                      <li><a href="/blog">Blog</a></li>
+                      <li><a href="/contact">Contact</a></li>
                    </ul>
                    <button class="nav-toggler">
                    <span></span>
