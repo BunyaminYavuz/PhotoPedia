@@ -1,9 +1,10 @@
 import express from 'express';
-import * as pageControllers from '../controllers/pageController.js';
+import * as pageController from '../controllers/pageController.js';
 
 const router = express.Router();
 
-router.route('/').get(pageControllers.getIndexPage);
-router.route('/about').get(pageControllers.getAboutPage);
+router.route('/').get(pageController.getIndexPage);
+router.route('/about').get(pageController.getAboutPage);
+router.route('/register').get(pageController.getRegisterPage);
 
 export default router;
