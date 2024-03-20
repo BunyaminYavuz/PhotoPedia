@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
 // Function to create a new user
@@ -8,8 +9,8 @@ const createUser = async (req, res) => {
     await User.create(req.body);
 
     // Render the 'about' page upon successful user creation
-    res.status(200).render('about', {
-      activePage: 'about',
+    res.status(200).render('login', {
+      activePage: 'login',
     });
   } catch (error) {
     console.log(error);
@@ -32,13 +33,22 @@ const loginUser = async (req, res) => {
     if (!isPasswordValid) {
       return res.status(401).send('Incorrect password');
     }
-
+    const token = createToken(user._id);
     // Login successful
-    res.status(200).send('Login successful');
+    res.status(200).json({
+      user,
+      token,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).send('Internal Server Error');
   }
+};
+
+const createToken = (userId) => {
+  return jwt.sign({ userId }, process.env.PRIVATE_KEY, {
+    expiresIn: '1d',
+  });
 };
 
 export { createUser, loginUser };
