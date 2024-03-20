@@ -1,8 +1,13 @@
+import bcrypt from 'bcrypt';
 import User from '../models/User.js';
 
+// Function to create a new user
 const createUser = async (req, res) => {
   try {
+    // Create a new user with the data from the request body
     await User.create(req.body);
+
+    // Render the 'about' page upon successful user creation
     res.status(200).render('about', {
       activePage: 'about',
     });
@@ -11,4 +16,29 @@ const createUser = async (req, res) => {
   }
 };
 
-export { createUser };
+// Function to login a user
+const loginUser = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // Find the user from the database by username
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    // Compare the incoming password with the hashed password in the database
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).send('Incorrect password');
+    }
+
+    // Login successful
+    res.status(200).send('Login successful');
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+export { createUser, loginUser };

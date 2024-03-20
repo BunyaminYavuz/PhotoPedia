@@ -1,6 +1,4 @@
 import Photo from '../models/Photo.js';
-import mongoose from 'mongoose';
-const { ObjectId } = mongoose.Types;
 
 const createPhoto = async (req, res) => {
   try {
@@ -28,12 +26,7 @@ const getAllPhotos = async (req, res) => {
 
 const getPhoto = async (req, res) => {
   try {
-    const isValidObjectId = ObjectId.isValid(req.params.id);
-    if (!isValidObjectId) {
-      return res.status(400).send('Invalid photo ID');
-    }
-
-    const photo = await Photo.findById(req.params.id);
+    const photo = await Photo.findOne({ slug: req.params.slug });
     if (!photo) {
       return res.status(404).send('Photo not found');
     }
@@ -47,7 +40,5 @@ const getPhoto = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
-
-
 
 export { createPhoto, getAllPhotos, getPhoto };

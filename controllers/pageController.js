@@ -36,4 +36,15 @@ const getRegisterPage = (req, res) => {
   }
 };
 
-export { getIndexPage, getAboutPage, getRegisterPage };
+const getLoginPage = (req, res) => {
+  try {
+    res.status(200).render('login', {
+      activePage: 'login',
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+export { getIndexPage, getAboutPage, getRegisterPage, getLoginPage };

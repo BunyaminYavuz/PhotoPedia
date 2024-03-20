@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import slugify from 'slugify';
 
 const Schema = mongoose.Schema;
 
@@ -17,6 +18,18 @@ const photoSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  slug: {
+    type: String,
+    unique: true,
+  },
+});
+
+photoSchema.pre('validate', function (next) {
+  this.slug = slugify(this.name, {
+    lower: true,
+    strict: true,
+  });
+  next();
 });
 
 const Photo = mongoose.model('Photo', photoSchema);
