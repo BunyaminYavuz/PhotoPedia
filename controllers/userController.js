@@ -60,7 +60,7 @@ const createToken = (userId) => {
 const getDashboardPage = (req, res) => {
   try {
     res.status(200).render('dashboard', {
-      activePage: 'login',
+      activePage: 'dashboard',
     });
   } catch (error) {
     console.log(error);

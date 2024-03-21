@@ -8,19 +8,22 @@
                 <a href="/">Photo<br><span>Pedia</span></a>
              </div>
           </div>
-          <div class="col-md-8 col-sm-9">
-             <div class="navbar-area">
+          <div class="col-md-10">
+             <div class="navbar-area" style="float: right;">
                 <nav class="site-navbar">
                    <ul>
                       <li><a class="<%= activePage  === 'home' ? 'active' : '' %>" href="/">Home</a></li>
                       <li><a class="<%= activePage  === 'about' ? 'active' : '' %>" href="/about">About</a></li>
                       <li><a class="<%= activePage  === 'photos' ? 'active' : '' %>" href="/photos">Photos</a></li>
-                      <li><a class="<%= activePage  === 'register' ? 'active' : '' %>" href="/register">Register</a></li>
-                      <li><a class="<%= activePage  === 'login' ? 'active' : '' %>" href="/login">Login</a></li>
-                      <!-- <li><a href="/services">Services</a></li>
-                      <li><a href="/projects">Projects</a></li>
-                      <li><a href="/blog">Blog</a></li>
-                      <li><a href="/contact">Contact</a></li> -->
+                      
+                      <% if (user) { %>
+                        <li><a class="<%= activePage  === 'dashboard' ? 'active' : '' %>" href="/users/dashboard">Dashboard</a></li>
+                        <li><a  href="/logout">Logout</a></li>
+                        <% } else {%>
+                           <li><a class="<%= activePage  === 'register' ? 'active' : '' %>" href="/register">Register</a></li>
+                           <li><a class="<%= activePage  === 'login' ? 'active' : '' %>" href="/login">Login</a></li>
+
+                      <% } %>
                    </ul>
                    <button class="nav-toggler">
                    <span></span>
@@ -28,11 +31,11 @@
                 </nav>
              </div>
           </div>
-          <div class=" col-md-2 di_none">
+          <!-- <div class=" col-md-2 di_none">
             <ul class="email text_align_right"><li><a href="Javascript:void(0)">Login</a></li>
             <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a></li>
             </ul>
-          </div>
+          </div> -->
        </div>
     </div>
  </header>

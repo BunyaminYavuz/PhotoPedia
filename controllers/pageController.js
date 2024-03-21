@@ -1,3 +1,4 @@
+import Jwt from 'jsonwebtoken';
 import Photo from '../models/Photo.js';
 const getIndexPage = async (req, res) => {
   try {
@@ -47,4 +48,22 @@ const getLoginPage = (req, res) => {
   }
 };
 
-export { getIndexPage, getAboutPage, getRegisterPage, getLoginPage };
+const getLogoutPage = (req, res) => {
+  try {
+    res.cookie('userToken', '', {
+      maxAge: 1,
+    });
+    res.status(200).redirect('/');
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+export {
+  getIndexPage,
+  getAboutPage,
+  getRegisterPage,
+  getLoginPage,
+  getLogoutPage,
+};
