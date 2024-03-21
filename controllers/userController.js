@@ -33,12 +33,18 @@ const loginUser = async (req, res) => {
     if (!isPasswordValid) {
       return res.status(401).send('Incorrect password');
     }
+
+    // Generate JWT token
     const token = createToken(user._id);
-    // Login successful
-    res.status(200).json({
-      user,
-      token,
+
+    // Set JWT token in cookie
+    res.cookie('userToken', token, {
+      httpOnly: true,
+      maxAge: process.env.JWT_EXPIRY_TIME || 1000 * 60 * 60 * 24, // Default: 24 hours
     });
+
+    // Redirect to user dashboard upon successful login
+    res.status(200).redirect('/users/dashboard');
   } catch (error) {
     console.log(error);
     res.status(500).send('Internal Server Error');
@@ -51,4 +57,15 @@ const createToken = (userId) => {
   });
 };
 
-export { createUser, loginUser };
+const getDashboardPage = (req, res) => {
+  try {
+    res.status(200).render('dashboard', {
+      activePage: 'login',
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+export { createUser, loginUser, getDashboardPage };

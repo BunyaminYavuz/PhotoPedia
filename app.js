@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 import connect from './db.js';
 import pageRoute from './routes/pageRoute.js';
 import photoRoute from './routes/photoRoute.js';
@@ -18,6 +19,7 @@ app.set('view engine', 'ejs'); // Ejs template engine
 app.use(express.static('public')); // Static files
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // ROUTES
 app.use('/', pageRoute);
